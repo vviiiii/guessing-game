@@ -1,9 +1,6 @@
 class GuessingGame {
-    // create empty game object 
     constructor() {
-        this.answer = 0;
-        this.min = 0;
-        this.max = 0;
+
     }
 
     setRange(min, max) {
@@ -16,18 +13,17 @@ class GuessingGame {
         if(this.max < this.min){
             return -1;
         }
-        this.answer = Math.round(this.max - (this.max - this.min)/2);
         // console.log(this);
-        return this.answer;
+        return Math.ceil(this.min + (this.max - this.min) / 2);;
         
     }
 
     lower() {
-        this.max = this.answer;
+        this.max = this.guess();
     }
 
     greater() {
-        this.min = this.answer;
+        this.min = this.guess();
     }
     
 }
